@@ -1,4 +1,4 @@
-package main.java.datastructure.entity;
+package  datastructure.entity;
 
 public class BST extends Tree {//Binary Search Tree
 
@@ -57,7 +57,8 @@ public class BST extends Tree {//Binary Search Tree
         int b = getfBalance(n);
 
         // If this node becomes unbalanced, then there
-        // are 4 cases Left Left Case
+        // are 4 cases
+        // Left Left Case
         if (balance > 1 && key < n.left.key)
             return rightRotate(n);
 

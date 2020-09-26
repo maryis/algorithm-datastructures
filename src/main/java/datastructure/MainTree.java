@@ -1,6 +1,6 @@
-package main.java.datastructure;
+package  datastructure;
 
-import main.java.datastructure.entity.Trie;
+import  datastructure.entity.Trie;
 
 public class MainTree {
     public static void main(String[] args) {

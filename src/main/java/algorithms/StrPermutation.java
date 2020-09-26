@@ -1,4 +1,4 @@
-package main.java.algorithms;
+package  algorithms;
 
 import java.util.HashSet;
 import java.util.Scanner;

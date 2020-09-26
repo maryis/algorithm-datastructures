@@ -1,6 +1,6 @@
-package main.java.datastructure;
+package  datastructure;
 
-import main.java.datastructure.entity.Graph;
+import  datastructure.entity.Graph;
 
 public class MainGraph {
 

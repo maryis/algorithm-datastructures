@@ -1,4 +1,4 @@
-package main.java.datastructure.sort;
+package  datastructure.sort;
 
 public class  MergeSort { //list of objects  worst,average,best time: n log n
 

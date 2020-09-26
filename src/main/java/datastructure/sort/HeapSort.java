@@ -1,4 +1,4 @@
-package main.java.datastructure.sort;
+package  datastructure.sort;
 
 public class HeapSort {
     //time xomplexity for every situation: nlogn (linearithmic)

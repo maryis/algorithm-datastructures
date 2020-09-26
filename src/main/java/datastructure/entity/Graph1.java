@@ -1,4 +1,4 @@
-package main.java.datastructure.entity;
+package  datastructure.entity;
 
 import java.util.*;
 

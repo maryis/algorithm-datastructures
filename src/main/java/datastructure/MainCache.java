@@ -1,6 +1,6 @@
-package main.java.datastructure;
+package  datastructure;
 
-import main.java.datastructure.cache.LRUCache;
+import  datastructure.cache.LRUCache;
 
 public class MainCache {
     public static void main(String[] args) {

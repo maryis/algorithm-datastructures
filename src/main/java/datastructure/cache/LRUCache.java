@@ -1,4 +1,4 @@
-package main.java.datastructure.cache;
+package  datastructure.cache;
 
 import java.util.HashMap;
 import java.util.Map;

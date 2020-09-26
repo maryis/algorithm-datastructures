@@ -1,7 +1,7 @@
-package main.java.datastructure;
+package  datastructure;
 
-import main.java.datastructure.sort.MergeSort;
-import main.java.datastructure.sort.QuickSort;
+import  datastructure.sort.MergeSort;
+import  datastructure.sort.QuickSort;
 
 public class MainSort {
     public static void main(String[] args) {

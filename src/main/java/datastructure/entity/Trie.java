@@ -1,4 +1,4 @@
-package main.java.datastructure.entity;
+package  datastructure.entity;
 
 public class Trie {
 

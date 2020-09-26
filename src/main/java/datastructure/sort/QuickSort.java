@@ -1,4 +1,4 @@
-package main.java.datastructure.sort;
+package  datastructure.sort;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +25,7 @@ public class QuickSort { //list of primitives   worst case: n^2   best case: n l
         int pivot = arr[end];
         int piv_ind = start;
 
-        for (int i = start; i < end; i++)
+        for (int i = start ; i < end; i++)
             if (arr[i] < pivot) {
                 int temp = arr[i];
                 arr[i] = arr[piv_ind];

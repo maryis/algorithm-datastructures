@@ -1,4 +1,4 @@
-package main.java.datastructure.entity;
+package  datastructure.entity;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -110,8 +110,6 @@ public abstract class Tree {
             if(n.left!=null) stack.push(n.left);
 
         }
-
-
 
     }
 
