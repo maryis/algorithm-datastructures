@@ -15,7 +15,7 @@ public class Directory extends Entry{
     }
 
     public void add(Entry entry) {
-        if(parent==null)
+        if(entry==null)
             return;
 
         entry.parent=this;
@@ -23,7 +23,7 @@ public class Directory extends Entry{
     }
 
     public void del(Entry entry) {
-        if(parent==null)
+        if(entry==null)
             return;
 
         children.remove(entry);

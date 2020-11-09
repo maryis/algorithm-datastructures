@@ -1,4 +1,4 @@
-package  datastructure.entity;
+package datastructure.entity;
 
 import java.util.*;
 
@@ -98,5 +98,35 @@ public class Graph {    // graph with vertexList
         return null;
     }
 
+    public boolean isCycle() {
 
+        makeGraphNotvisited();
+        for (int i = 0; i < nodes.size(); i++) {
+
+            if (!nodes.get(i).visited) {
+                nodes.get(i).visited = true;
+                if (hasCycle(nodes.get(i),null))
+                    return true;
+            }
+        }
+
+        return false;
+
+    }
+
+    public boolean hasCycle(Vertex node, Vertex parent) {
+
+        List<Vertex> children = node.adjacencyList;
+        for (int i = 0; i < children.size(); i++)
+            if (!children.get(i).visited) {
+                if (hasCycle(children.get(i), parent))
+                    return true;
+            } else {
+                if (children.get(i) != parent)
+                    return true;
+            }
+
+        return false;
+    }
 }
+

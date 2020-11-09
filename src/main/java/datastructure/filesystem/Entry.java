@@ -22,7 +22,7 @@ public abstract class Entry {
     }
     public String getPath(){
         if(parent==null)
-            return "";
+            return name;
         else
             return parent.getPath()+"/"+name;
     }

@@ -11,7 +11,7 @@ public class arrayPermutation {
 
     public static void main(String[] args) {
 
-        System.out.println("enter n for having premutation of len n:");
+        System.out.println("enter n for having permutation of len n:");
         Scanner scanner = new Scanner(System.in);
         len = scanner.nextInt();
 

@@ -6,12 +6,12 @@ public class HeapSort {
 
         int[]arr={5,34,6,23,9};
 
-        heapSort(arr,arr.length,0);
+        heapSort(arr,arr.length);
         printArray(arr);
 
     }
 
-    private static void heapSort(int[] arr, int length, int nod) {
+    private static void heapSort(int[] arr, int length) {
 
         //make a heap tree (every node is max of its children)
         for(int i=length/2-1;i>=0;i--)
@@ -19,9 +19,9 @@ public class HeapSort {
 
         //every time get the max from arr[0]
         //put it in the end of array, and heapify array without end section
-        for(int i=length-1;i>0;i--){
-            swap(arr,0,i);
-            heapify(arr,i,0);
+        for(int len=length-1;len>0;len--){
+            swap(arr,0,len);
+            heapify(arr,len,0);
         }
     }
 

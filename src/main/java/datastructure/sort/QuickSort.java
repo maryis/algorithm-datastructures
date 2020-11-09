@@ -29,7 +29,7 @@ public class QuickSort { //list of primitives   worst case: n^2   best case: n l
             if (arr[i] < pivot) {
                 int temp = arr[i];
                 arr[i] = arr[piv_ind];
-                 arr[piv_ind] = temp;
+                arr[piv_ind] = temp;
 
                 piv_ind = piv_ind+1;
             }
