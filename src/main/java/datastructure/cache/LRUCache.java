@@ -57,6 +57,7 @@ public class LRUCache {
     public void offer(int key,int value){
         Node node=new Node(key,value);
         offer(node);
+        map.put(key,node);
     }
 
     private void offer(Node n) {
@@ -80,6 +81,7 @@ public class LRUCache {
 
     private void removeLRU() {
         if(tail!=null){
+            map.remove(tail.key);
             tail.next.prev=null;
             tail=tail.next;
             count--;
@@ -100,9 +102,9 @@ public class LRUCache {
             head = n.prev;
             head.next = null;
         }
+        map.remove(n.key);
         count--;
     }
-
 
 }
 
