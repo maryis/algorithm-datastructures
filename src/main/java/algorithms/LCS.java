@@ -2,6 +2,9 @@ package algorithms;
 
 import java.util.Arrays;
 
+/* DP is another version of Recursive, so we can easily convert rec to dp
+with the same tasks ( basic, and relation to previous item
+ */
 public class LCS {
 
     //the length of longest common subsequent of two string

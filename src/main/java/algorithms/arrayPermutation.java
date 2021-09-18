@@ -5,57 +5,51 @@ import java.util.Scanner;
 
 public class arrayPermutation {
 
-    static int len;
-    static int[] arr1;
-    static int[] arr;
-
     public static void main(String[] args) {
 
-        System.out.println("enter n for having premutation of len n:");
+        System.out.println("enter n for having permutation of len n:");
         Scanner scanner = new Scanner(System.in);
-        len = scanner.nextInt();
+        int len = scanner.nextInt();
+        int[] arr={1,2,3};
 
-        arr=new int[2];
-        arr[0]=2; arr[1] = 3;
-        arr1 = new int[len];
+        int[] result = new int[len];
+        permutateN(arr, result, len, 0);//level 0 of tree
 
-        printpermutation(0);//level 0 of tree
-
-        System.out.println("premutation of array without repeat:");
-        printpermutation(0,arr.length);
+        System.out.println("permutation of array without repeat:");
+        permutate(arr,0, arr.length);
     }
 
-    private static void printpermutation(int start, int end) {
+    private static void permutate(int[] arr, int start, int end) {
         if(start==end) {
             Arrays.stream(arr).forEach(item -> System.out.printf(Integer.toString(item)));
             System.out.printf("\n");
         }
         for(int i=start;i<end;i++){
-            swap(i,start);
-            printpermutation(start+1,end);
-            swap(i,start);
+            swap(arr, i,start);
+            permutate(arr,start+1,end);
+            swap(arr, i,start);
         }
     }
 
-    private static void swap(int i, int i1) {
+    private static void swap(int[] arr, int i, int i1) {
         int temp=arr[i];
         arr[i]=arr[i1];
         arr[i1]=temp;
     }
 
-    private static  void printpermutation(int l) {
+    private static  void permutateN(int[] arr, int[] res, int len, int level) {
 
-        if (l == len) { //leaf
-            for (int i : arr1) {
+        if (level == len) { //leaf
+            for (int i : res) {
                 System.out.print(i);
             }
             System.out.println("\n");
             return;
         }
 
-        for (int i = 0; i < arr.length; i++) {
-            arr1[l] = arr[i];
-            printpermutation(l + 1);
+        for (int i = 0; i < arr.length ; i++) {
+            res[level] = arr[i];
+            permutateN(arr, res, len, level + 1);
 
         }
 

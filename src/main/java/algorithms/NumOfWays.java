@@ -9,7 +9,7 @@ public class NumOfWays {
 
     static int noOfWays=0;
     public static void main(String[] args) {
-        int N=3;
+        int N=6;
         dfs(N,0);//0 : sum of element till here
         System.out.println(noOfWays);
 
@@ -45,7 +45,11 @@ public class NumOfWays {
                 else
                     matrix[i][j]=Math.max(matrix[i-1][j],matrix[i][j-1]);
             }
-        return matrix[4][N-1];
+        return matrix[1][N-1]+
+                matrix[2][N-1]+
+                matrix[3][N-1]+
+                matrix[4][N-1]+
+                matrix[0][N-1];
     }
 
 }

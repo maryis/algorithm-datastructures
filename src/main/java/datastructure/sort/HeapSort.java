@@ -4,14 +4,14 @@ public class HeapSort {
     //time xomplexity for every situation: nlogn (linearithmic)
     public static void main(String[] args) {
 
-        int[]arr={5,34,6,23,9};
+        int[]arr={5,34,11,6,23,9};
 
-        heapSort(arr,arr.length,0);
+        heapSort(arr,arr.length);
         printArray(arr);
 
     }
 
-    private static void heapSort(int[] arr, int length, int nod) {
+    private static void heapSort(int[] arr, int length) {
 
         //make a heap tree (every node is max of its children)
         for(int i=length/2-1;i>=0;i--)

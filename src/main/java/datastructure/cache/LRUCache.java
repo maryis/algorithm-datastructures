@@ -1,12 +1,16 @@
 package  datastructure.cache;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LRUCache {
 
-    //another way to think: have a hach-func : x% capacity
+    //another way to think: have a hash-func : x% capacity
     //instead of map we can use an array
+
+    //a better way to implement: a map and a dequeue
+    //deque, because scan/insert/delete to middle/both side is quicker
 
     class Node{
         int key;
