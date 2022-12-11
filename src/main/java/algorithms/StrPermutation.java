@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+//time complexity:
+// T(n) = n + t(n-1) = n*2 n!
 public class StrPermutation {
 
     static Set<String> solutions=new HashSet<>();////SSSSEEETTT

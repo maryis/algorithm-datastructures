@@ -7,7 +7,7 @@ Problem Description
 
 Given are Three arrays A, B and C.
 
-Return the sorted list of numbers that are present in atleast 2 out of the 3 arrays.
+Return the sorted list of numbers that are present in at least 2 out of the 3 arrays.
 
 
 

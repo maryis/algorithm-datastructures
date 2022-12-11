@@ -11,7 +11,7 @@ public class BackTrackSolution {
         W=45;
         int n=wt.length;
 
-        knapsack(wt, v,0,0,0 );
+        knapsack(wt, v,0,0, 0);
         System.out.println(maxV);
 
     }
