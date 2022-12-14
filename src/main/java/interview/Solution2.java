@@ -9,7 +9,7 @@ Given a set of reviews provided by the customers for different hotels and a stri
 
 NOTE: Sorting should be stable. If review i and review j have the same Goodness Value then their original order would be preserved.
 
-You are expected to use Trie in an Interview for such problems
+You are expected to use Trie2 in an Interview for such problems
  */
 public class Solution2 {
     public ArrayList<Integer> solve(String A, ArrayList<String> B) {

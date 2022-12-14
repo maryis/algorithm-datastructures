@@ -1,4 +1,4 @@
-package datastructure.entity;
+package datastructure.entity.graph;
 
 import java.util.Arrays;
 

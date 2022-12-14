@@ -1,15 +1,103 @@
-package datastructure.entity;
+package datastructure.entity.graph;
 
 import java.util.*;
 
-public class Graph {    // graph with vertexList
+public class Graph2 {
 
+    List<Vertex> nodes;
 
-    //if we wants to represent graph with matrix:
-//    int n;
-//    boolean[][] AdjacencyMatrix;
+    public Graph2() {
+        nodes = new ArrayList<>();
+    }
 
-    public static class Vertex {
+    public void addNode(Vertex v) {
+        nodes.add(v);
+    }
+
+    public void addEdge(Vertex a, Vertex b) {
+        //with this way of adding edge, we make graph undirected
+        a.adjacencyList.add(b);
+        b.adjacencyList.add(a);
+    }
+
+    private void makeGraphNotVisited() {
+        nodes.forEach(item -> item.visited = false);
+    }
+
+    /**
+     * this only works if the graph is connected,
+     * otherwise we need an upper loop
+     * @param k
+     * @return
+     */
+    public Vertex bfs(int k) {
+        System.out.println("start of bfs search for " + k);
+        if (nodes.isEmpty()) return null;
+
+        Queue<Vertex> queue = new LinkedList<>();
+        makeGraphNotVisited();
+        queue.add(nodes.get(0));
+        nodes.get(0).visited = true;
+
+        while (!queue.isEmpty()) {
+            Vertex newOne = queue.poll();
+            if (newOne.data == k)  return newOne;
+            newOne.adjacencyList.forEach(item -> {
+                if (!item.visited) {
+                    item.visited = true;
+                    queue.add(item);
+                }
+            });
+        }
+        return null;
+    }
+
+    public Vertex dfs(int k) {
+        System.out.println("start of dfs search for " + k);
+        if (nodes.isEmpty()) return null;
+
+        Deque<Vertex> stack = new ArrayDeque<>();
+        makeGraphNotVisited();
+        stack.push(nodes.get(0));
+        nodes.get(0).visited = true;
+
+        while (!stack.isEmpty()) {
+            Vertex newOne = stack.pop();
+            if (newOne.data == k) return newOne;
+            newOne.adjacencyList.forEach(item -> {
+                if (!item.visited) {
+                    stack.push(item);
+                    item.visited = true;
+                }
+            });
+        }
+        return null;
+    }
+
+    public boolean isCycle() {
+        makeGraphNotVisited();
+        for (int i = 0; i < nodes.size(); i++) {
+            if (!nodes.get(i).visited) {
+                nodes.get(i).visited = true;
+                if (hasCycle(nodes.get(i),null))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasCycle(Vertex node, Vertex parent) {
+        List<Vertex> children = node.adjacencyList;
+        for (int i = 0; i < children.size(); i++) {
+            if (children.get(i).visited && children.get(i) != parent)
+                return true;
+            if (hasCycle(children.get(i), parent))
+                return true;
+        }
+        return false;
+    }
+
+    static class Vertex {
         int data;
         boolean visited;
         List<Vertex> adjacencyList;
@@ -19,114 +107,6 @@ public class Graph {    // graph with vertexList
             visited = false;
             adjacencyList = new ArrayList<>();
         }
-    }
-
-    List<Vertex> nodes;
-
-    public Graph() {
-        nodes = new ArrayList<>();
-    }
-
-    public void addNode(Vertex v) {
-        nodes.add(v);
-    }
-
-    public void addEdge(Vertex a, Vertex b) {
-        a.adjacencyList.add(b);
-        b.adjacencyList.add(a);
-    }
-
-    private void makeGraphNotvisited() {
-        nodes.forEach(item -> item.visited = false);
-    }
-
-    public Vertex bfs(int k) {
-        System.out.println("start of bfs search for " + k);
-        if (nodes.size() == 0)
-            return null;
-
-        Queue<Vertex> queue = new LinkedList<>();
-        makeGraphNotvisited();
-
-        queue.add(nodes.get(0));
-        nodes.get(0).visited = true;
-
-        while (!queue.isEmpty()) {
-            Vertex newOne = queue.poll();
-            if (newOne.data == k)
-                return newOne;
-
-            newOne.adjacencyList.forEach(item -> {
-                if (!item.visited) {
-                    item.visited = true;
-                    queue.add(item);
-                }
-            });
-
-        }
-
-        return null;
-
-    }
-
-    public Vertex dfs(int k) {//we have to use visited list to avoid loop
-
-        System.out.println("start of dfs search for " + k);
-
-        if (nodes.size() == 0)
-            return null;
-
-        Stack<Vertex> stack = new Stack<>();
-        makeGraphNotvisited();
-
-        stack.push(nodes.get(0));
-        nodes.get(0).visited = true;
-
-        while (!stack.isEmpty()) {
-            Vertex newOne = stack.pop();
-            if (newOne.data == k)
-                return newOne;
-
-            newOne.adjacencyList.forEach(item -> {
-                if (!item.visited) {
-                    stack.push(item);
-                    item.visited = true;
-                }
-            });
-
-        }
-        return null;
-    }
-
-    public boolean isCycle() {
-
-        makeGraphNotvisited();
-        for (int i = 0; i < nodes.size(); i++) {
-
-            if (!nodes.get(i).visited) {
-                nodes.get(i).visited = true;
-                if (hasCycle(nodes.get(i),null))
-                    return true;
-            }
-        }
-
-        return false;
-
-    }
-
-    public boolean hasCycle(Vertex node, Vertex parent) {
-
-        List<Vertex> children = node.adjacencyList;
-        for (int i = 0; i < children.size(); i++)
-            if (!children.get(i).visited) {
-                if (hasCycle(children.get(i), parent))
-                    return true;
-            } else {
-                if (children.get(i) != parent)
-                    return true;
-            }
-
-        return false;
     }
 }
 

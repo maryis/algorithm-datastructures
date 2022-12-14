@@ -1,6 +1,6 @@
 package  datastructure;
 
-import  datastructure.entity.Trie;
+import datastructure.entity.trie.Trie1;
 
 public class MainTree {
     public static void main(String[] args) {
@@ -28,16 +28,16 @@ public class MainTree {
 //        System.out.println("DFS");
 //        myTree.DFS();
 
-        Trie dictionary=new Trie();
+        Trie1 dictionary=new Trie1();
         dictionary.insert("hello");
         dictionary.insert("salam");
         dictionary.insert("hei");
 
         System.out.println("does exist hello?"+dictionary.searchWord("hello"));
         System.out.println("does exist hella?"+dictionary.searchWord("hella"));
-        System.out.println("does prefix exist he?"+dictionary.serachPrefix("he"));
-        System.out.println("does prefix exist sal?"+dictionary.serachPrefix("sal"));
-        System.out.println("does prefix exist sald?"+dictionary.serachPrefix("sald"));
+        System.out.println("does prefix exist he?"+dictionary.searchPrefix("he"));
+        System.out.println("does prefix exist sal?"+dictionary.searchPrefix("sal"));
+        System.out.println("does prefix exist sald?"+dictionary.searchPrefix("sald"));
 
         dictionary.dfs();
 

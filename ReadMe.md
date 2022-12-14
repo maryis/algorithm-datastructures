@@ -1,4 +1,4 @@
-**some notes**
+ **some notes**
 
 DFS is not optimal, meaning the number of steps in reaching the solution, or the cost spent in reaching it is high.
 DFS is complete means it finds the solution is there is any
